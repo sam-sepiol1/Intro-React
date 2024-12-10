@@ -21,10 +21,19 @@
 
 .list { 
   padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .list li { 
   list-style-type: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #646cff;
+  display: flex;
+  gap: 1rem;
+
 }
 
 .button { 
