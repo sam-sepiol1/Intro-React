@@ -1,5 +1,8 @@
 import './App.css'
-import {Header, Input, Button, List} from './TodoList'
+import List from './TodoList'
+import Header from './Header'
+import Form from './Form'
+
 
 function App() {
 
@@ -8,9 +11,8 @@ function App() {
     <>
       <Header></Header>
 
-      <div className='input-button'> 
-      <Input></Input>
-      <Button></Button>
+      <div className='form'> 
+      <Form></Form>
       </div>
       
       <List></List>
