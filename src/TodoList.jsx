@@ -29,18 +29,20 @@ export const TodoList = () => {
 		{ id: 4, text: "Todo 4", completed: true },
 	];
 
-    const handleCheck = (id) => {
+	const handleCheck = (id) => {
         const newTodos = todos.map((todo) => {
             if (todo.id === id) {
-                return { 
-                    ...todo, 
-                    completed: !todo.completed }
-            }
-            return todo
-        })
+                return {
+                    ...todo,
+					completed: !todo.completed,
+                }
+            };
+			return todo;
+		});
 
-        setTodos(newTodos)
-    }
+        
+		setTodos(newTodos);
+	};
 
 	const [todos, setTodos] = useState(initalTodos);
 	return (
@@ -49,12 +51,7 @@ export const TodoList = () => {
 			<ul className='todo-list'>
 				{todos.map((todo) => (
 					<li className='todo-list--item' key={todo.id}>
-						<input 
-                        type='checkbox'
-                        id={todo.id}
-                        checked={todo.completed}
-                        onChange={ () => handleCheck(todo.id) }
-                         />
+						<input type='checkbox' id={todo.id} checked={todo.completed} onChange={() => handleCheck(todo.id)} />
 						{todo.text}
 					</li>
 				))}
