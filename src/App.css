@@ -49,6 +49,7 @@
 
 .todo-list--item {
 	display: flex;
-  justify-content: center;
+  justify-content: start;
 	font-size: 1.2rem;
+  text-align: center;
 }
