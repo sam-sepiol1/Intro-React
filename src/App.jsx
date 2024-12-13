@@ -17,10 +17,11 @@ function App() {
   }
 
   function handleCheck(id) {
-    const updatedTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    );
-    setTodos(updatedTodos); 
+    const updatedTodos = todos.find((todo) => todo.id === id);
+    if (updatedTodos) {
+      updatedTodos.completed = !updatedTodos.completed;
+      setTodos([...todos]);
+    }
   }
 
   const handleSubmit = (e) => {
