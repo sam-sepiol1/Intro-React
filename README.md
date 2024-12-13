@@ -6,4 +6,4 @@ This project is a simple To-Do List application built using React. It demonstrat
 
 ## Links
 
-- [Live Demo](https://todo-list-react-three-henna.vercel.app)
+- [https://todo-list-react-three-henna.vercel.app](https://todo-list-react-three-henna.vercel.app)
