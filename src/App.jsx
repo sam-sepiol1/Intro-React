@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 
@@ -9,7 +9,7 @@ import TodoList from './TodoList';
 function App() {
   const [todos, setTodos] = useState([]); 
   const [title, setTitle] = useState('');
-  const inputRef = useRef();
+
 
   function addTodo(todoText) {
     const newTodo = { id: uuidv4(), text: todoText, completed: false };
@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Form handleSubmit={handleSubmit} title={title} setTitle={setTitle} inputRef={inputRef} />
+      <Form handleSubmit={handleSubmit} title={title} setTitle={setTitle} />
       <TodoList todos={todos} handleCheck={handleCheck} />
     </div>
   );
