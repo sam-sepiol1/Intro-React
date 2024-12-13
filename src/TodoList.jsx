@@ -30,17 +30,16 @@ export const TodoList = () => {
 	];
 
 	const handleCheck = (id) => {
-        const newTodos = todos.map((todo) => {
-            if (todo.id === id) {
-                return {
-                    ...todo,
+		const newTodos = todos.map((todo) => {
+			if (todo.id === id) {
+				return {
+					...todo,
 					completed: !todo.completed,
-                }
-            };
+				};
+			}
 			return todo;
 		});
 
-        
 		setTodos(newTodos);
 	};
 
