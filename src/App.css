@@ -32,11 +32,11 @@
 	cursor: pointer;
 	font-size: 1.2rem;
 	color: white;
-  background-color: #646cff;
+	background-color: #646cff;
 
-  &:hover {
-    background-color: #4248bf;
-  }
+	&:hover {
+		background-color: #4248bf;
+	}
 }
 
 .todo-list {
@@ -49,7 +49,13 @@
 
 .todo-list--item {
 	display: flex;
-  justify-content: start;
+	justify-content: start;
 	font-size: 1.2rem;
-  text-align: center;
+	text-align: center;
+
+	span, del {
+		flex: 1;
+		text-align: left;
+		padding: 0 1rem;
+	}
 }

@@ -1,60 +1,14 @@
-import { useState } from "react";
-
-export const Header = () => {
+function TodoList({ todos, handleCheck }) {
 	return (
-		<div className='header'>
-			<h1 id='title' className='header--title'>
-				Todo List
-			</h1>
-		</div>
+		<ul className="todo-list">
+			{todos.map((todo) => (
+				<li key={todo.id} className="todo-list--item">
+					<input type='checkbox' checked={todo.completed} onChange={() => handleCheck(todo.id)} />
+					{todo.completed ? <del>{todo.text}</del> : <span>{todo.text}</span>}
+				</li>
+			))}
+		</ul>
 	);
-};
+}
 
-export const Input = () => {
-	return (
-		<form className='input'>
-			<input className='input--input' type='text' placeholder='Add todo' />
-			<button type='submit' className='input--button'>
-				Add Todo
-			</button>
-		</form>
-	);
-};
-
-export const TodoList = () => {
-	const initalTodos = [
-		{ id: 1, text: "Todo 1", completed: false },
-		{ id: 2, text: "Todo 2", completed: false },
-		{ id: 3, text: "Todo 33333", completed: false },
-		{ id: 4, text: "Todo 4", completed: true },
-	];
-
-	const handleCheck = (id) => {
-		const newTodos = todos.map((todo) => {
-			if (todo.id === id) {
-				return {
-					...todo,
-					completed: !todo.completed,
-				};
-			}
-			return todo;
-		});
-
-		setTodos(newTodos);
-	};
-
-	const [todos, setTodos] = useState(initalTodos);
-	return (
-		<>
-			<h2>Todo List</h2>
-			<ul className='todo-list'>
-				{todos.map((todo) => (
-					<li className='todo-list--item' key={todo.id}>
-						<input type='checkbox' id={todo.id} checked={todo.completed} onChange={() => handleCheck(todo.id)} />
-						{todo.text}
-					</li>
-				))}
-			</ul>
-		</>
-	);
-};
+export default TodoList;
