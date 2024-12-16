@@ -5,6 +5,7 @@ import './App.css';
 import Header from './Header';
 import Form from './Form';
 import TodoList from './TodoList';
+import Button from './Button';
 
 const LSKEY = 'MyTodoList.todos';
 
@@ -46,11 +47,17 @@ function App() {
     setTodos(updatedTodos);
   }
 
+  function clearCompleted() {
+    const updatedTodos = todos.filter((todo) => !todo.completed);
+    setTodos(updatedTodos);
+  }
+
   return (
     <div className="App">
       <Header />
       <Form handleSubmit={handleSubmit} title={title} setTitle={setTitle} />
       <TodoList todos={todos} handleCheck={handleCheck} removeTodo={removeTodo} />
+      <Button onClick={clearCompleted} text='Clear Completed'></Button>
     </div>
   );
 }
