@@ -1,4 +1,4 @@
-const Form = ({ handleSubmit, title, setTitle, inputRef }) => {
+const Form = ({ handleSubmit, title, setTitle }) => {
   return (
     <form className="input" onSubmit={handleSubmit}>
       <input
@@ -7,7 +7,6 @@ const Form = ({ handleSubmit, title, setTitle, inputRef }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Add todo"
-
       />
       <button type="submit" className="input--button">
         Add Todo
