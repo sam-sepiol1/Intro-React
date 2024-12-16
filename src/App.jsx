@@ -13,7 +13,6 @@ function App() {
     const savedTodos = localStorage.getItem(LSKEY);
     return savedTodos ? JSON.parse(savedTodos) : [];
   }) 
-
   const [title, setTitle] = useState('');
 
   useEffect(() => {
@@ -42,11 +41,16 @@ function App() {
     }
   };
 
+  function removeTodo(id) {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  }
+
   return (
     <div className="App">
       <Header />
       <Form handleSubmit={handleSubmit} title={title} setTitle={setTitle} />
-      <TodoList todos={todos} handleCheck={handleCheck} />
+      <TodoList todos={todos} handleCheck={handleCheck} removeTodo={removeTodo} />
     </div>
   );
 }
