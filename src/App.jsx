@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 
@@ -6,9 +6,19 @@ import Header from './Header';
 import Form from './Form';
 import TodoList from './TodoList';
 
+const LSKEY = 'MyTodoList.todos';
+
 function App() {
-  const [todos, setTodos] = useState([]); 
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem(LSKEY);
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  }) 
+
   const [title, setTitle] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem(LSKEY, JSON.stringify(todos));
+  }, [todos]);
 
 
   function addTodo(todoText) {
